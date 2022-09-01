@@ -1,4 +1,5 @@
-FROM python:3.7
+ARG build_for=linux/amd64
+FROM --platform=$build_for python:3.7
 MAINTAINER Evgeny Medvedev <evge.medvedev@gmail.com>
 ENV PROJECT_DIR=ethereum-etl
 
