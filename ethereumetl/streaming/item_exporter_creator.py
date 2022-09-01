@@ -69,8 +69,7 @@ def create_item_exporter(output):
                 'token': create_insert_statement_for_table(TOKENS),
                 'contract': create_insert_statement_for_table(CONTRACTS),
             },
-            converters=[UnixTimestampItemConverter(), IntToDecimalItemConverter(),
-                        ListFieldItemConverter('topics', 'topic', fill=4)])
+            converters=[UnixTimestampItemConverter(), IntToDecimalItemConverter()])
     elif item_exporter_type == ItemExporterType.GCS:
         from blockchainetl.jobs.exporters.gcs_item_exporter import GcsItemExporter
         bucket, path = get_bucket_and_path_from_gcs_output(output)
